@@ -1,0 +1,24 @@
+1. Why is MVVM important? Which files represent Model, which files represent View, and which files represent ViewModel?
+Pentingnya MVVM: MVVM memisahkan User Interface (UI) dari logika bisnis, sehingga jika Anda perlu mendesain ulang UI atau memperbarui logika, Anda hanya perlu menyentuh komponen yang relevan tanpa mempengaruhi komponen lain. Hal ini mempermudah penambahan fitur baru dan pengujian kode (testing).
+File yang merepresentasikan komponen:
+Model: Movie.kt (Entity) , MovieDao.kt , dan MovieDatabase.kt.
+View: activity_main.xml (Layout) , MainActivity.kt , dan RecyclerViewBinding.kt.
+ViewModel: MovieViewModel.kt.
+
+2. In Part 1, you implemented Data Binding, why is this more efficient than using the normal method?
+Data Binding lebih efisien karena memungkinkan ViewModel untuk berkomunikasi langsung dengan View tanpa perlu menggunakan metode seperti findViewById.
+Kita dapat memanggil atribut seperti app:list="" di dalam RecyclerView dan langsung mengisinya dengan LiveData atau StateFlow dari dalam ViewModel.
+
+3. In Part 2, you implemented the Singleton Pattern, why is this important?
+Singleton Pattern memastikan hanya ada satu instance Database di seluruh multiple threads.
+Hal ini penting untuk menjamin validitas data, mencegah Race Conditions, dan menghemat sumber daya karena pembuatan instance database baru memakan biaya memori yang mahal.
+
+4. In Part 2 & 3, you implemented the Repository Pattern, why is this important?
+Repository Pattern menyediakan cara untuk mensinkronisasi data aplikasi antara layanan web (API) dan database lokal (Room).
+Pola ini memastikan database lokal selalu diperbarui dengan data dari layanan web.
+Selain itu, pola ini memungkinkan pengguna untuk tetap mengakses aplikasi meskipun tidak ada koneksi internet di area tersebut.
+
+5. In part 3, you implemented the Worker Manager, is there another way to refresh your database with the latest data other than using Worker?
+Berdasarkan teks modul, metode utama yang diajarkan untuk refresh database secara otomatis pada interval tertentu—bahkan saat aplikasi ditutup atau perangkat di-restart—adalah menggunakan WorkManager.
+Selain WorkManager, terdapat beberapa cara lain untuk memperbarui database dengan data terbaru, seperti melakukan refresh manual oleh pengguna, melakukan refresh setiap kali aplikasi dibuka, menggunakan AlarmManager, atau menggunakan Service. 
+Namun, WorkManager tetap menjadi pilihan terbaik karena paling stabil, hemat energi, dan tetap berjalan meskipun aplikasi ditutup atau perangkat direstart.
