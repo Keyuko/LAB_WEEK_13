@@ -3,7 +3,7 @@ Pentingnya MVVM: MVVM memisahkan User Interface (UI) dari logika bisnis, sehingg
 File yang merepresentasikan komponen:
 Model: Movie.kt (Entity) , MovieDao.kt , dan MovieDatabase.kt.
 View: activity_main.xml (Layout) , MainActivity.kt , dan RecyclerViewBinding.kt.
-ViewModel: MovieViewModel.kt.
+ViewModel: MovieViewModel.kt
 
 2. In Part 1, you implemented Data Binding, why is this more efficient than using the normal method?
 Data Binding lebih efisien karena memungkinkan ViewModel untuk berkomunikasi langsung dengan View tanpa perlu menggunakan metode seperti findViewById.
